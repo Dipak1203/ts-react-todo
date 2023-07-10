@@ -1,42 +1,44 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.App{
+  width: 100%;
+  height: 100vh;
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  background-color: #77458a;
+  color: #fff;
+  padding: 10px;
+  outline: none !important;
+
+}
+.todo_list{
+  width: 500px;
+  background: #ffff;
+  color: #77458a;
+  height:500px;
+  border: none;
+  border-radius: 10px;
+}
+.list{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.input{
+  margin-bottom: 20px;
+  color: #fff;
+}
+.input::placeholder{
+  color:#fff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.list h2{
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.text{
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 900;
 }

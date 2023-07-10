@@ -1,18 +1,30 @@
-import { InterfaceTask } from "../Interfaces"
-
-interface Props{
-    task: InterfaceTask;
-    completeTask(taskDlt:string): void;
+import { InterfaceTask } from "../Interfaces";
+import { Button } from "@chakra-ui/react";
+import { Tooltip } from "@chakra-ui/react";
+interface Props {
+  task: InterfaceTask;
+  completeTask(taskDlt: string): void;
 }
-const Show = ({task,completeTask}: Props) => {
-
+const Show = ({ task, completeTask }: Props) => {
   return (
-    <div>
-        <h2>{task.taskName}</h2>
-        <h2>{task.taskDeadline}</h2>
-        <button onClick={() => completeTask(task.taskName)}>Remove</button>
+    <div className="list">
+      <div>
+        <h2>
+          <Tooltip label={task.taskDeadline} aria-label="A tooltip">
+            {task.taskName}
+          </Tooltip>
+        </h2>
+      </div>
+      <Button
+        className="btn"
+        colorScheme="red"
+        size="md"
+        onClick={() => completeTask(task.taskName)}
+      >
+        X
+      </Button>
     </div>
-  )
-}
+  );
+};
 
-export default Show
+export default Show;
