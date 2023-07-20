@@ -7,6 +7,7 @@ import { useToast } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
 import { Center } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 interface FormValues {
   task: string;
@@ -64,9 +65,12 @@ const App: FC = () => {
   }, [todo]);
 
   return (
-    <div className="App">
-      <div className="header">
+    <div className="App row">
+      <div className="header col-md-6">
         <div>
+        {errors.task && (
+              <span className="error" style={{color:'red'}}>Task field is required.</span>
+            )}
           <Heading>CliffByte Todo List</Heading>
           <form onSubmit={addTask}>
             <Input
@@ -77,9 +81,7 @@ const App: FC = () => {
               size="md"
               {...register("task", { required: true })}
             />
-            {errors.task && (
-              <span className="error">Task field is required.</span>
-            )}
+           
             <Input
               // name="deadline"
               placeholder="Select Date and Time"
@@ -98,7 +100,7 @@ const App: FC = () => {
         </div>
       </div>
 
-      <div className="todo_list">
+      <div className="todo_list col-md-6">
         <Center className="text">My Task</Center>
         {todo.map((task: InterfaceTask, key: number) => {
           return <Show key={key} task={task} completeTask={completeTask} />;
